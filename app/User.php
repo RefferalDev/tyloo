@@ -35,16 +35,6 @@ class User extends Authenticatable
     ];
 
     /**
-     * Automatically encrypt an user password.
-     *
-     * @param string $pass
-     */
-    public function setPasswordAttribute($pass)
-    {
-        $this->attributes['password'] = Hash::make($pass);
-    }
-
-    /**
      * Get all the posts for a given User.
      */
     public function posts()
