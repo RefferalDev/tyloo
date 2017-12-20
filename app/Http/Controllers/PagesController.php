@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\Http\Requests\ContactRequest;
 use App\Jobs\SendContactEmail;
 use App\Work;
-use App\Customer;
 
 class PagesController extends Controller
 {
