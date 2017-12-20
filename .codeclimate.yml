@@ -1,0 +1,27 @@
+engines:
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - php
+  phpcodesniffer:
+    enabled: true
+  phpmd:
+    enabled: true
+  fixme:
+    enabled: true
+ratings:
+  paths:
+  - "**.php"
+exclude_paths:
+- app/Exceptions/**/*
+- app/Http/Middleware/**/*
+- app/Http/Requests/**/*
+- app/Providers/**/*
+- bootstrap/**/*
+- database/**/*
+- public/**/*
+- resources/**/*
+- storage/**/*
+- tests/**/*
+- /*
