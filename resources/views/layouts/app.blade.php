@@ -1,80 +1,84 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Julien 'Tyloo' Bonvarlet <jbonva@gmail.com>">
+    <meta name="description" content="Design - description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="/assets/img/favicon.png">
+    <title>Tyloo.fr - Engineer, Web Developer and Rugbyman!</title>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700%7CRaleway:200,300,400,700">
+    <link rel="stylesheet" href="/assets/css/frontend.css">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+{{-- Header --}}
+<header>
+    {{-- Navigation --}}
+    <div class="navbar navbar-fixed-top">
+        <div class="container container-header">
+            <div class="navbar-header">
+                {{-- Logo --}}
+                @include('partials.common.header._logo')
+                {{-- /Logo --}}
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+                {{-- Mobile Navigation --}}
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                {{-- /Mobile Navigation --}}
             </div>
-        </nav>
 
-        @yield('content')
+            {{-- Main Navigation --}}
+            @include('partials.common.header._menu')
+            {{-- /Main Navigation --}}
+        </div>
     </div>
+    {{-- /Navigation --}}
+</header>
+{{-- /Header --}}
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+{{-- Main Container --}}
+<div class="main-container">
+    @yield('content')
+</div>
+{{-- /Main Container --}}
+
+{{-- Footer --}}
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            {{-- About --}}
+            @include('partials.common.footer._about')
+            {{-- /About --}}
+
+            {{-- Recent Post --}}
+            @include('partials.common.footer._lastPosts')
+            {{-- /Recent Post --}}
+
+            {{-- Contact --}}
+            @include('partials.common.footer._contact')
+            {{-- /Contact --}}
+
+            {{-- Social --}}
+            @include('partials.common.footer._social')
+            {{-- /Social --}}
+        </div>
+
+        {{-- Copyright --}}
+        @include('partials.common.footer._copyright')
+        {{-- /Copyright --}}
+    </div>
+</footer>
+{{-- /Footer --}}
+
+<a href="#" class="scroll-top"><div class="scrolltop-holder"><i class="fa fa-arrow-up scrolltop"></i></div></a>
+
+<script src="/assets/js/frontend.js"></script>
+@include('partials.common.footer._analytics')
 </body>
 </html>

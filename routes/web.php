@@ -3,17 +3,17 @@
 Auth::routes();
 
 // Home
-Route::get('/', 'PagesController@home')->name('pages.home');
+Route::get('/', 'PagesController@home')->name('home');
 
 // Resume
-Route::get('resume', 'PagesController@resume')->name('pages.resume');
+Route::get('resume', 'PagesController@resume')->name('resume');
 
 // Contact
-Route::get('contact', 'PagesController@contact')->name('pages.contact');
-Route::post('contact', 'PagesController@postContact')->name('pages.contact');
+Route::get('contact', 'PagesController@contact')->name('contact');
+Route::post('contact', 'PagesController@postContact')->name('contact');
 
 // Translate
-Route::get('translate/{lang}', 'PagesController@translate')->name('pages.translate');
+Route::get('translate/{lang}', 'PagesController@translate')->name('translate');
 
 // Blog
 Route::group(['prefix' => 'blog'], function () {
